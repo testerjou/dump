@@ -37,12 +37,13 @@ class Lexer:
                 #checkword
                 print(current_word)
                 
-                
+
                 if current_word in self.KEYWORDS:
                     token_list.append(("KEYWORD",current_word))
                 if current_char in self.DIGITS:
-                    token_list.append(())
+                    token_list.append(("INT", current_char))
                 current_word = ""
+                current_char = ""
             pass
 
         print(token_list)
