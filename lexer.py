@@ -14,7 +14,7 @@ class Lexer:
         token_list = []
 
         print("Input",self.input)
-        split_list = input.split()
+        split_list = [element.lower() for element in input.split()]
 
         for element in split_list:
             if element in self.KEYWORDS:
