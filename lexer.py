@@ -17,10 +17,10 @@ class Lexer:
         split_list = input.split()
 
         for element in split_list:
-            if current_word in self.KEYWORDS:
-                token_list.append(("KEYWORD",current_word))
-            elif current_char in self.DIGITS:
-                token_list.append(("INT", current_char))
+            if element in self.KEYWORDS:
+                token_list.append(("KEYWORD",element))
+            elif element in self.DIGITS:
+                token_list.append(("INT", element))
             else:
                 print("NOT FOUND ", element)
         print("TOKENS:",token_list)
