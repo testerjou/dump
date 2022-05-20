@@ -19,21 +19,29 @@ class Lexer:
 
         print("Input",self.input)
 
+        split_list = input.split()
+
+        print("split_list", split_list)
+
         for i, v in enumerate(self.input):
             #if i + 1 == len(input):
             #    break
             
             if v in self.LETTERS:
-                print(i)
                 current_word += v
-                print(i)
+
+            if v in self.DIGITS:
+                current_char = v 
+
             if v.isspace():
                 #checkword
                 print(current_word)
                 
                 
                 if current_word in self.KEYWORDS:
-                    token_list.append((current_word,))
+                    token_list.append(("KEYWORD",current_word))
+                if current_char in self.DIGITS:
+                    token_list.append(())
                 current_word = ""
             pass
 
