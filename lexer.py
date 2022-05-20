@@ -9,7 +9,24 @@ class Lexer:
 
     def get_next(self):
         pass
+
     def create_tokens(self):
+        token_list = []
+
+        print("Input",self.input)
+        split_list = input.split()
+
+        for element in split_list:
+            if current_word in self.KEYWORDS:
+                token_list.append(("KEYWORD",current_word))
+            elif current_char in self.DIGITS:
+                token_list.append(("INT", current_char))
+            else:
+                print("NOT FOUND ", element)
+        print("TOKENS:",token_list)
+
+
+    def create_tokens1(self):
 
         token_list = []
         current_word = ""
