@@ -30,11 +30,11 @@ class Lexer:
             if v.isspace():
                 #checkword
                 print(current_word)
-                current_word = ""
+                
                 
                 if current_word in self.KEYWORDS:
                     token_list.append((current_word,))
-            
+                current_word = ""
             pass
 
         print(token_list)
