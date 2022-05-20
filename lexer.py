@@ -31,8 +31,13 @@ class Lexer:
                 #checkword
                 print(current_word)
                 current_word = ""
+                
+                if current_word in self.KEYWORDS:
+                    token_list.append((current_word,))
             
             pass
+
+        print(token_list)
 
         for i in range(len(input)):
             pass
