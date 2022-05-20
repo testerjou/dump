@@ -8,3 +8,6 @@ class Lexer:
     KEYWORDS = ['eteen', 'taakse', 'oikealle', 'vasemmalle']
     DIGITS = '0123456789'
     LETTERS = 'abcdefghjiklmnopqrstuvxyzåöä'
+
+
+print("Hello")
