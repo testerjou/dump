@@ -16,15 +16,18 @@ class Lexer:
         current_char = ""
 
         #i = index, v = value
-        for i, v in enumerate(input):
+
+        print("Input",self.input)
+
+        for i, v in enumerate(self.input):
             #if i + 1 == len(input):
             #    break
             
             if v in self.LETTERS:
+                print(i)
                 current_word += v
-
+                print(i)
             if v.isspace():
-                print("Works", " value ", v, "123")
                 #checkword
                 print(current_word)
                 current_word = ""
@@ -39,7 +42,5 @@ class Lexer:
 
 input = "Eteen 5 Taakse 5"
 lex = Lexer(input)
-print(lex.input)
-print("Hello")
 
 lex.create_tokens()
