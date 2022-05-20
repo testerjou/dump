@@ -14,7 +14,8 @@ class Lexer:
 
         print("Input",self.input)
         split_list = [element.lower() for element in input.split()]
-        print("Split:",split_list)
+        print("Split:", split_list)
+        
         for element in split_list:
             if element in self.KEYWORDS:
                 token_list.append(("KEYWORD",element))
@@ -24,15 +25,16 @@ class Lexer:
                 print("NOT FOUND ", element)
         print("TOKENS:",token_list)
 
-    def set_input(self, input):
+    def define_input_as(self, input):
         self.input = input
+
+#set input is not working
 
 input = "Eteen 5 Taakse 5"
 lex = Lexer(input)
 lex.create_tokens()
-
-lex.set_input("Eteen5 Taakse5")
+lex.define_input_as("Eteen5 Taakse5")
 lex.create_tokens()
 
-lex.set_input("Eteen5Taakse5")
+lex.define_input_as("Eteen5Taakse5")
 lex.create_tokens()
