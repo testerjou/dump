@@ -12,7 +12,12 @@ class Lexer:
         
         for index, element in enumerate(split_list):
             if element in self.KEYWORDS:
-                token_list.append(("KEYWORD",element))                
+                token_list.append(("KEYWORD",element))    
+
+            elif str('"') in element: 
+                string_value = element.strip('"')
+                token_list.append(("STRING", str(string_value)))
+
             elif split_list[index-1] == "show" and str('"') in element: 
                 string_value = element.strip('"')
                 token_list.append(("STRING", str(string_value)))
