@@ -12,8 +12,7 @@ class Lexer:
         
         for index, element in enumerate(split_list):
             if element in self.KEYWORDS:
-                token_list.append(("KEYWORD",element))    
-
+                token_list.append(("KEYWORD",element))                
             elif str('"') in element: 
                 string_value = element.strip('"')
                 token_list.append(("STRING", str(string_value)))
@@ -21,6 +20,7 @@ class Lexer:
             elif split_list[index-1] == "show" and str('"') in element: 
                 string_value = element.strip('"')
                 token_list.append(("STRING", str(string_value)))
+            
             elif element.isdigit():
                 token_list.append(("INT", int(element)))
             else:
@@ -32,7 +32,7 @@ class Lexer:
     
 
 
-input_code = 'Eteen 5 Taakse 5 Show 555 Show "lkajsdlk5fjalkdsj'
+input_code = 'Eteen 5 Taakse 5 Show 555 Show "lkajsdlk5fjalkdsj "apinapinapina'
 lex = Lexer(input_code)
 print(lex.create_tokens())
 """
