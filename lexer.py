@@ -39,5 +39,5 @@ print(lex.create_tokens())
 
 input_code = "Eteen 5 Taakse5"
 lex.set_input_code(input_code)
-lex.create_tokens()
+print(lex.create_tokens())
 """
