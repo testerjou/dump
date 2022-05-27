@@ -1,40 +1,38 @@
 class Lexer: 
-    def __init__(self, input):
-        self.input = input.lower()
-        pass
+    def __init__(self, input_code):
+        self.input_code = input_code.lower()
     
-    KEYWORDS = ['eteen', 'taakse', 'oikealle', 'vasemmalle']
-    DIGITS = '0123456789'
-
-    def get_next(self):
-        pass
+    KEYWORDS = ['eteen', 'taakse', 'oikealle', 'vasemmalle', 'show']
 
     def create_tokens(self):
         token_list = []
-
-        print("Input",self.input)
-        split_list = [element.lower() for element in input.split()]
-        print("Split:", split_list)
+    
+        split_list = [element.lower() for element in self.input_code.split()]
+        # print("Split:", split_list)
         
-        for element in split_list:
+        for index, element in enumerate(split_list):
             if element in self.KEYWORDS:
-                token_list.append(("KEYWORD",element))
-            elif element in self.DIGITS:
-                token_list.append(("INT", element))
+                token_list.append(("KEYWORD",element))                
+            elif split_list[index-1] == "show" and str('"') in element: 
+                string_value = element.strip('"')
+                token_list.append(("STRING", str(string_value)))
+            elif element.isdigit():
+                token_list.append(("INT", int(element)))
             else:
                 print("NOT FOUND ", element)
-        print("TOKENS:",token_list)
+        return token_list
+        
+    def set_input_code(self, input_code): 
+        self.input_code = input_code.lower()
+    
 
-    def define_input_as(self, input):
-        self.input = input
 
-#set input is not working
+input_code = 'Eteen 5 Taakse 5 Show 555 Show "lkajsdlk5fjalkdsj'
+lex = Lexer(input_code)
+print(lex.create_tokens())
+"""
 
-input = "Eteen 5 Taakse 5"
-lex = Lexer(input)
+input_code = "Eteen 5 Taakse5"
+lex.set_input_code(input_code)
 lex.create_tokens()
-lex.define_input_as("Eteen5 Taakse5")
-lex.create_tokens()
-
-lex.define_input_as("Eteen5Taakse5")
-lex.create_tokens()
+"""
